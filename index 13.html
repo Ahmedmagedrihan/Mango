@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Text - Anastacia</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+        #anastacia-text {
+            font-size: 5em;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="anastacia-text">Anastacia</div>
+
+    <script>
+        const fonts = [
+            'Arial', 'Verdana', 'Times New Roman', 'Courier New', 'Georgia', 'Palatino', 'Garamond', 
+            'Comic Sans MS', 'Trebuchet MS', 'Impact', 'Lucida Sans', 'Tahoma', 'Brush Script MT', 
+            'Monaco', 'Futura', 'Century Gothic', 'Helvetica', 'Optima', 'Lobster', 'Dancing Script', 'Pacifico'
+        ];
+
+        const textElement = document.getElementById("anastacia-text");
+
+        function getRandomFont() {
+            return fonts[Math.floor(Math.random() * fonts.length)];
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeStyle() {
+            textElement.style.fontFamily = getRandomFont();
+            textElement.style.color = getRandomColor();
+        }
+
+        // Event listeners for both touch and mouse events
+        document.body.addEventListener('click', changeStyle);
+        document.body.addEventListener('touchstart', changeStyle);
+    </script>
+
+</body>
+</html>
